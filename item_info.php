@@ -19,10 +19,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Eristics is a target oriented 
-	and goal driven platform/blog with the sole aim of providing 
-	value-driven services, correct and information through the application of strategic and dynamic 
-	solutions to meet up with challenges in all strata of the society">
+    <meta name="description" content="<?php echo $item->details?>">
     <meta name="keyword" content="events, eristics, eristicminds, politics, gossips,
 	graphics, web, blog, news">
     <title> Eristics | <?php echo $item->title;?>
@@ -30,7 +27,7 @@
     <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
-    <link rel="icon" type="image/png" href="images/eristics_mini_logo.png" size="32X32">
+    <link rel="icon" type="image/png" href="images/eristics_logo_small.png" size="32X32">
     <link rel="stylesheet" href="controller/style.css">
     
 </head>
@@ -72,6 +69,11 @@
                 </figure>
                 
                 <?php endforeach; }?>
+                <div class="comment">
+                    <p> Share <i class="fas fa-share-alt"></i></p>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://eristics.com.ng/item_info.php?item=<?php echo $story_id;?>" target="_blank" title="share on Facebook">Facebook <i style="color:blue;" class="fab fa-facebook"></i></a>
+                    <a href="whatsapp://send?text=https://eristics.com.ng/item_info.php?item=<?php echo $story_id;?>" data-action="share/whatsapp/share" target="_blank" title="share on Whatsapp">Whatsapp <i style="color:green;" class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </section>
         <section id="searchResults" class="related">

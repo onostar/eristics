@@ -17,7 +17,7 @@
     <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="fontawesome-free-5.15.1-web/css/all.css">
-    <link rel="icon" type="image/png" href="images/eristics_mini_logo.png" size="32X32">
+    <link rel="icon" type="image/png" href="images/eristics_logo_small.png" size="32X32">
     <link rel="stylesheet" href="controller/style.css">
     
 </head>
@@ -179,7 +179,7 @@
                                     <p><i class="fas fa-layer-group"></i> <?php echo $row->category?></p>
                                     <!-- <button>Read more </button> -->
                                 </div>
-                                <p class="post_date"><i class="fas fa-calendar"></i> <?php echo date("jS M, Y", strtotime($row->post_date));?></p>
+                                <p class="post_date"><!-- <i class="fas fa-calendar"></i>  --><?php echo date("jS M, Y", strtotime($row->post_date));?></p>
                             </figcaption>
                         </a>
                     </figure>
@@ -187,10 +187,28 @@
                     <?php endforeach ?>
                     
                 </div>
-            <div class="archive">
-                    <a href="archive.php">View more <i class="fas fa-angle-double-right"></i></a>
+                <div class="archive">
+                        <a href="archive.php">View more <i class="fas fa-angle-double-right"></i></a>
+                </div>
+            <!-- adds -->
+            <div class="mobile_adds">
+                <?php
+                    $get_ad = $connectdb->prepare("SELECT * FROM ads WHERE ads_id = 2");
+                    $get_ad->execute();
+                    $ads = $get_ad->fetchAll();
+                    foreach($ads as $ad):
+                ?>
+                <img src="<?php echo "media/".$ad->photo;?>" alt="Eristics ads">
+                <?php 
+                    endforeach;
+                    if(!$get_ad->rowCount()){
+                        echo "<div class='adds_non'>
+                        <p>This space is for adds Placement<br> Contact <a style='color:yellow'; class='contact_us' href='javascript:void(0)'>Admin</a> to place your adds here!</p>
+                        </div>";
+                    }
+
+                ?>
             </div>
-                
             </section>
             <section class="groups">
                 <?php 
@@ -202,7 +220,7 @@
                         $categories = $show->category;
                     
                 ?>
-                <div class="breaking each_cat" id="breaking_news">
+                <div class="breaking each_cat">
                     <h2><?php echo $categories;?></h2>
                     <hr>
                     <div class="divs">
