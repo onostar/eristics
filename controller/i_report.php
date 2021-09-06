@@ -55,10 +55,10 @@
 
                     /* Send admin mail */
                     $subject = $item_name;
-                    $message = "$posted_by has just posted an I-report to the  archive. /n Kindly view to approve /n <a href='https://admin.eristics.com.ng' title='Order now'>Click to View Now</a>";
+                    $message = "$posted_by has just posted an I-report to the  archive. /n Kindly view to approve /n <a href='https://admin.eristics.com.ng' title='View'>Click to View Now</a>";
                     $mailheader = "From: admin@eristics.com.ng";
                     
-                    mail("admin@eristic.com.ng, onostarmedia@gmail.com", $subject, $message, $mailHeader) or die("Error!");
+                    mail("articles@eristics.com.ng, eristicminds@gmail.com onostarmedia@gmail.com", $subject, $message, $mailHeader) or die("Error!");
                     
                 }else{
                     "<script>

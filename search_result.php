@@ -7,13 +7,13 @@
     if(isset($_POST['search'])){
         $item_search = ucwords(htmlspecialchars(stripslashes($_POST['search_items'])));
 
-        $search_query = $connectdb->prepare("SELECT * FROM stories WHERE title LIKE '%$item_search%' OR category LIKE '%$item_search%' OR summary LIKE '%$item_search%' ORDER BY post_date");
+        $search_query = $connectdb->prepare("SELECT SUBSTRING_INDEX(details, ' ', 10) AS details, story_id, title, category, foto, posted_by, update_status, post_date, headline_id, post_time, update_status FROM stories WHERE title LIKE '%$item_search%' OR category LIKE '%$item_search%' AND update_status = 1 ORDER BY post_date");
         $search_query->execute();
         
     }
 
 ?>
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -57,7 +57,7 @@
                         <figcaption>
                             <div class="todo">
                                 <h3><?php echo $show->title?></h3>
-                                <p><?php echo $show->summary?></p>
+                                <p><?php echo $show->details?></p>
                                 <p><i class="fas fa-layer-group"></i> <?php echo $show->category?></p>
                                 <p class="post_date"><i class="fas fa-calendar"></i> <?php echo date("jS M, Y", strtotime($show->post_date));?></p>
                             </div>
