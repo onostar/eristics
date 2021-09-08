@@ -1718,6 +1718,7 @@ footer{
     opacity:0;
     transform:scale(0);
     display:none;
+    overflow-y:scroll;
     animation:.5s showAppoint 1;
     animation-fill-mode: forwards;
     animation-timing-function: linear;
