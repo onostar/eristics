@@ -56,7 +56,7 @@
                     /* Send admin mail */
                     $subject = $item_name;
                     $message = "$posted_by has just posted an I-report to the  archive. /n Kindly view to approve /n <a href='https://admin.eristics.com.ng' title='View'>Click to View Now</a>";
-                    $mailheader = "From: admin@eristics.com.ng";
+                    $mailheader = "From: Admin";
                     
                     mail("articles@eristics.com.ng, eristicminds@gmail.com onostarmedia@gmail.com", $subject, $message, $mailHeader) or die("Error!");
                     

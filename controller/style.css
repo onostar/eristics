@@ -2059,11 +2059,14 @@ footer{
         width:80%;
     }
     .description h2{
-        font-size:1.3rem;
+        font-size:1.2rem;
     }
     .description p{
-        font-size: 1rem;
+        font-size: .9rem;
     } 
+    .description a{
+        padding:5px 10px;
+    }
     #asideRight{
         display:none;
     }
