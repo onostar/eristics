@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2021 at 01:06 AM
+-- Generation Time: Sep 05, 2021 at 02:18 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 7.4.20
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `eristics`
+-- Database: `eristics_eristics`
 --
 
 -- --------------------------------------------------------
@@ -40,7 +40,7 @@ CREATE TABLE `administrators` (
 --
 
 INSERT INTO `administrators` (`id`, `admin_email`, `user_password`, `contact_person`, `contact_phone`) VALUES
-(6, 'admin@eristics.com.ng', '12345', 'Saint City', '08032848508');
+(6, 'admin@eristics.com.ng', '425716', 'Saint City', '08032848508');
 
 -- --------------------------------------------------------
 
@@ -62,9 +62,7 @@ INSERT INTO `ads` (`ads_id`, `ads_title`, `photo`) VALUES
 (1, 'Done', 'Temix_md.jpg'),
 (2, '', ''),
 (3, '', ''),
-(4, '', ''),
-(5, '', ''),
-(6, '', '');
+(4, '', '');
 
 -- --------------------------------------------------------
 
@@ -82,12 +80,10 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`category_id`, `category`) VALUES
-(1, 'Politics'),
-(2, 'Sports'),
+(1, 'News'),
 (3, 'Events'),
 (4, 'Gossips'),
-(6, 'Others'),
-(8, 'Celebrities');
+(8, 'Eye witness news');
 
 -- --------------------------------------------------------
 
@@ -126,8 +122,6 @@ CREATE TABLE `messages` (
 --
 
 INSERT INTO `messages` (`message_id`, `contact_name`, `contact_email`, `contact_message`, `mail_subject`, `sent_date`, `status`) VALUES
-(2, 'Kelly Ikpefua', 'onostarkels@gmail.com', 'testing', '', '2021-08-03 00:00:00', 1),
-(3, 'Kelly Ikpefua', 'onostarkels@gmail.com', 'testing from login', '', '2021-08-05 00:00:00', 1),
 (4, 'Cynthia Oguas', 'cy@grace.com', 'Kindly give me info on adds placement', 'Advert consult', '2021-08-22 16:53:20', 1),
 (5, 'Paul Idiagbon', 'paul@gmail.com', 'Just see if it work', 'testing the box', '2021-08-28 21:09:47', 0);
 
@@ -147,7 +141,7 @@ CREATE TABLE `stories` (
   `details` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `posted_by` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `update_status` int(12) NOT NULL,
-  `post_date` date NOT NULL DEFAULT current_timestamp(),
+  `post_date` datetime NOT NULL DEFAULT current_timestamp(),
   `headline_id` int(11) NOT NULL,
   `post_time` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -157,17 +151,19 @@ CREATE TABLE `stories` (
 --
 
 INSERT INTO `stories` (`story_id`, `title`, `category`, `summary`, `i_report`, `foto`, `details`, `posted_by`, `update_status`, `post_date`, `headline_id`, `post_time`) VALUES
-(2, 'Chef Pee Signatures', 'Politics', 'Egusi Soup With Pounded Yam', 1, 'akpu-egusi.jpg', '', '', 1, '2021-06-15', 0, '2021-08-22 10:23:47'),
-(5, 'Chicken Republic', 'Snacks', 'Harmburger', 1, 'chef-pee-special-hot-dog.jpeg', 'Freshly made harmburger', '', 1, '2021-06-15', 0, '2021-08-22 10:23:47'),
-(11, 'Chef Pee Signatures', 'Grains', 'Jollof Rice With Chicken', 1800, 'chef-pee-event-jollof-rice-plnatain-salad-chicken.jpg', 'Freshly prepared egusi jollof rice for your enjoyment', '', 0, '2021-06-15', 0, '2021-08-22 10:23:47'),
-(12, 'Temix Empire', 'Cakes', 'Spongebob Cake', 4000, 'sponge_bob cake.jpg', '', '', 1, '2021-06-15', 0, '2021-08-22 10:23:47'),
-(13, 'Chicken Republic', 'Politics', 'Jollof Anf Fried Rice Mixed With Turkey', 2500, 'rice.jpg', '', '', 1, '2021-06-15', 3, '2021-08-22 10:23:47'),
-(21, 'Olu Of Warri Coronatd', 'Events', 'Here we witnes the coronation of olu of warr', 0, 'online_trading.jpeg', 'LETS WAtch the coronation of olu of warri at the 21st inaugua=ratin ceremony', 'Admin', 1, '2021-08-22', 1, '2021-08-22 10:23:47'),
-(22, 'Southampton V Man United Live Today', 'Sports', 'Watch southampton take on the vibrant reds by 2pm today', 0, 'banking_banner.jpg', 'We shall be going live with the updates on the match between united and Southampton at saint Marys', 'Admin', 1, '2021-08-22', 1, '2021-08-22 10:23:47'),
-(23, 'Learning Code', 'Others', '', 1, 'bitcoin.jpg', 'My first tiume learning to poast a blog', 'Paul Ikpefua', 1, '2021-08-22', 1, '2021-08-22 11:16:11'),
-(24, 'Just Chasing', 'Others', '', 1, 'eat.png', 'checking 123', 'Cynthia Bullock', 0, '2021-08-22', 0, '2021-08-22 11:32:22'),
-(25, 'The Cake Specialist', 'Others', 'This is still a test', 1, 'eat.jpg', 'dsc ', 'James Brown', 1, '2021-08-22', 0, '2021-08-22 11:34:00'),
-(26, 'Story For The Gods', 'Events', '', 1, 'baking_cakes.jpg', 'We just discovered an item that is from the gods form 1980', 'John Bigfoot', 1, '2021-08-26', 1, '2021-08-26 07:03:51');
+(2, 'Chef Pee Signatures', 'Events', 'Egusi Soup With Pounded Yam', 1, 'akpu-egusi.jpg', '', '', 1, '2021-06-15 00:00:00', 0, '2021-08-22 10:23:47'),
+(5, 'Chicken Republic', 'Eye witness news', 'Harmburger', 1, 'chef-pee-special-hot-dog.jpeg', 'Freshly made harmburger', '', 1, '2021-06-15 00:00:00', 0, '2021-08-22 10:23:47'),
+(11, 'Chef Pee Signatures', 'Gossips', 'Jollof Rice With Chicken', 1800, 'chef-pee-event-jollof-rice-plnatain-salad-chicken.jpg', 'Freshly prepared egusi jollof rice for your enjoyment', '', 0, '2021-06-15 00:00:00', 0, '2021-08-22 10:23:47'),
+(12, 'Temix Empire', 'News', 'Spongebob Cake', 4000, 'sponge_bob cake.jpg', '', '', 1, '2021-06-15 00:00:00', 0, '2021-08-22 10:23:47'),
+(13, 'Chicken Republic', 'News', 'Jollof Anf Fried Rice Mixed With Turkey', 2500, 'rice.jpg', '', '', 1, '2021-06-15 00:00:00', 3, '2021-08-22 10:23:47'),
+(21, 'Olu Of Warri Coronatd', 'Events', 'Here we witnes the coronation of olu of warr', 0, 'online_trading.jpeg', 'LETS WAtch the coronation of olu of warri at the 21st inaugua=ratin ceremony', 'Admin', 1, '2021-08-22 00:00:00', 1, '2021-08-22 10:23:47'),
+(22, 'Southampton V Man United Live Today', 'Events', 'Watch southampton take on the vibrant reds by 2pm today', 0, 'banking_banner.jpg', 'We shall be going live with the updates on the match between united and Southampton at saint Marys', 'Admin', 1, '2021-08-22 00:00:00', 1, '2021-08-22 10:23:47'),
+(23, 'Learning Code', 'Eye witness news', '', 1, 'bitcoin.jpg', 'My first tiume learning to poast a blog', 'Paul Ikpefua', 1, '2021-08-22 00:00:00', 1, '2021-08-22 11:16:11'),
+(24, 'Just Chasing', 'Gossips', '', 1, 'eat.png', 'checking 123', 'Cynthia Bullock', 1, '2021-08-22 00:00:00', 0, '2021-08-22 11:32:22'),
+(25, 'The Cake Specialist', 'Gossips', 'This is still a test', 1, 'eat.jpg', 'dsc ', 'James Brown', 1, '2021-08-22 00:00:00', 0, '2021-08-22 11:34:00'),
+(26, 'Story For The Gods', 'Events', '', 1, 'baking_cakes.jpg', 'We just discovered an item that is from the gods form 1980', 'John Bigfoot', 1, '2021-08-26 00:00:00', 1, '2021-08-26 07:03:51'),
+(27, 'Wolverhampton Wanderes V Man United', 'News', 'watch with us as the reds take on the wolves', 0, 'events_banner5.jpg', 'Follow up on eristics every minute for the match', 'Admin', 1, '2021-08-29 15:20:32', 0, '2021-08-29 14:20:32'),
+(28, 'Checking My Work', 'Gossips', '', 0, 'hero_image.jpg', 'Is this working', 'Admin', 1, '2021-09-03 18:13:58', 0, '2021-09-03 17:13:58');
 
 -- --------------------------------------------------------
 
@@ -271,7 +267,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `stories`
 --
 ALTER TABLE `stories`
-  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `story_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `subscribers`
